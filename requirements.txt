@@ -1,0 +1,53 @@
+rmdir /s .\env
+where python
+
+py -m venv env
+.\env\Scripts\activate.bat
+python manage.py runserver              3000
+
+django-admin startproject mysite .
+
+python manage.py startapp               myapp
+
+python manage.py makemigrations         myapp
+python manage.py migrate                myapp
+
+python manage.py createsuperuser
+
+    deploy on Render
+look up renders docs to deploy a Django project
+
+    dependencies:
+python -m pip install django       django-admin --version
+py -m pip install dj-database-url
+py -m pip install psycopg2-binary
+py -m pip install whitenoise[brotli]
+
+# Before we execute the bash commands, we need to create a build.sh and add a commands from render docs
+
+    git bash
+chmod a+x build.sh
+py -m pip install gunicorn
+
+
+# CONFIG TO DEVELOP IN DJANGO REST FRAMEWORK
+python -m pip install djangorestframework
+
+django-admin startproject djangorest .
+
+python -m pip install django-cors-headers
+
+# DOCUMENT YOUR DJANGO API -> LOOK UP django rest framework autoschema legacy
+py -m pip install coreapi
+
+# Vitejs
+npm create vite
+npm install
+npm run dev
+
+# DEPENDENCIES
+npm i react-router-dom react-hot-toast axios react-hook-form
+
+# TAILWIND
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
